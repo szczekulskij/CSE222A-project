@@ -1,9 +1,9 @@
 # CSE222A-project
 
 ## AWS Servers information
-I chose instane type: `t2.xlarge` with Ubuntu. Its cost is ~0.2$/hour. Three VMs can run for ~3 days, which is easily sufficient to finish the assignment while also providing enough .
+I chose instane type: `t2.xlarge` with Ubuntu. Its cost is ~0.2$/hour. Three VMs can run for ~3 days, which is easily sufficient to finish the assignment while also providing wayyyy too much compute.
 
-I initially wanted to create 3 VMs. Two within the same Availability Zone (like us-west-2), and one in another Availability Zone like us-west-1. However, I ran into issues that I believe have to do with UCSD access (Since I was setting using UCSD account)
+I initially wanted to create 3 VMs. Two within the same Availability Zone (like us-west-2), and one in another Availability Zone like us-west-1. However, I ran into issues when spinning up EC2 in any other region than us-west-2. I believe the issue had to do with UCSD AWS permission set up (Since I was setting using UCSD account)
 
 | Instance name | Region | Public IPv4 address  | Server/Client?   | Link to Instance |
 |---------------|----------|----------|----------|------------------|
@@ -16,20 +16,22 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * When setting up instances I allowed all traffic to come through (via the AWS console) (I'm aware it's a bad practice. Just a temp change)
 * .pem to ssh to instance attached (look access_key.pem)
 * Before sshing to an instance, make sure to run `chmod 400 "access_key.pem"`
-* To ssh to VM (1): `ssh -i "access_key.pem" ubuntu@ec2-34-222-61-83.us-west-2.compute.amazonaws.com` (might need to change to root@)
-* To ssh to VM (2): `ssh -i "access_key.pem" ubuntu@ec2-34-221-148-182.us-west-2.compute.amazonaws.com` (might need to change to root@)
+* To ssh to VM (1) (server): `ssh -i "access_key.pem" ubuntu@ec2-34-222-61-83.us-west-2.compute.amazonaws.com` (might need to change to root@)
+* To ssh to VM (2) (client): `ssh -i "access_key.pem" ubuntu@ec2-34-221-148-182.us-west-2.compute.amazonaws.com` (might need to change to root@)
 
 
 ## Shell commands used in the assignment
 
-#### General:
-* `tc qdisc add dev eth0 root netem delay 20ms` to introduce a 20 sec delay, as per stack overflow: [here](https://serverfault.com/questions/787006/how-to-add-latency-and-bandwidth-limit-interface-using-tc)
+#### General for moving around VMs:
 * `sudo pkill iperf3` - to kill any uncessary iperf3 sesssions that would persist
-* `vim` & `less` to ad-hoc investigate the contents of files
+* `vim` & `less` to ad-hoc investigate the contents of networking files
+* `scp -i "access_key.pem" ubuntu@ec2-34-221-148-182.us-west-2.compute.amazonaws.com:/home/ubuntu/test.json .` - to download files later used for data analysis from 2nd VM (client)
 
-
-#### Setting up BBR & CUBIC:
-....
+#### General for network setup:
+* `tc qdisc add dev eth0 root netem delay 20ms` to introduce a 20 sec delay, as per stack overflow: [here](https://serverfault.com/questions/787006/how-to-add-latency-and-bandwidth-limit-interface-using-tc)
+* `sysctl net.ipv4.tcp_congestion_control` - to check which congestion control is utilized in the current session
+* `sudo sysctl -w net.ipv4.tcp_congestion_control=bbr` - to overwrite (temporarily) the networking protocol to be bbr
+* `sudo sysctl -w net.ipv4.tcp_congestion_control=cubic` - to overwrite (temporarily) the networking protocol to be cubic
 
 #### Large file transfer (using iperf):
 * To set up server and listen for message on 1st VM: `iperf3 -s` (`-s` stands for server)
