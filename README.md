@@ -11,6 +11,9 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
   |   Row 1  | [link to instance](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#InstanceDetails:instanceId=i-0a12e67effb95a521)      |
 |   2.us-west-2       |   us-west-2  |   34.222.61.83  |   Row 2  | [link to instance](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#InstanceDetails:instanceId=i-07929b2333abd47c0)      |
 
-#### Useful links:
+#### Useful links/commands/info:
 * Link to instances: [here](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#Instances:instanceState=running)
 * .pem to ssh to instance attached (look access_key.pem)
+* Before sshing to an instance, make sure to run `chmod 400 "access_key.pem"`
+* To ssh to VM (1): `ssh -i "access_key.pem" ubuntu@ec2-34-222-61-83.us-west-2.compute.amazonaws.com` (might need to change to root@)
+* To ssh to VM (2): `ssh -i "access_key.pem" ubuntu@ec2-34-221-148-182.us-west-2.compute.amazonaws.com` (might need to change to root@)
