@@ -7,8 +7,7 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 
 | Instance name | Region | Public IPv4 address  | Server/Client?   | Link to Instance |
 |---------------|----------|----------|----------|------------------|
-|   1.us-west-2       |   us-west-2  |   34.221.148.182
-  |   Server  | [link to instance](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#InstanceDetails:instanceId=i-0a12e67effb95a521)      |
+|   1.us-west-2       |   us-west-2  |   34.221.148.182|   Server  | [link to instance](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#InstanceDetails:instanceId=i-0a12e67effb95a521)      |
 |   2.us-west-2       |   us-west-2  |   34.222.61.83  |   Client  | [link to instance](https://us-west-2.console.aws.amazon.com/ec2/home?region=us-west-2#InstanceDetails:instanceId=i-07929b2333abd47c0)      |
 
 #### Useful links/commands/info AWS related:
