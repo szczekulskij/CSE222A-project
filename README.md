@@ -22,9 +22,8 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 ## Shell commands used in the assignment
 
 #### General for moving around VMs:
-* `sudo pkill iperf3` - to kill any uncessary iperf3 sesssions that would persist
 * `vim` & `less` to ad-hoc investigate the contents of networking files
-* `scp -i "access_key.pem" ubuntu@ec2-{server_ip}.us-west-2.compute.amazonaws.com:/home/ubuntu/test.json .` - to download files later used for data analysis from 2nd VM (client)
+* `scp -i "access_key.pem" ubuntu@ec2-35-92-34-130.us-west-2.compute.amazonaws.com:/home/ubuntu/test.json .` - to download files later used for data analysis from 2nd VM (client)
 
 #### General for network setup:
 * `sudo tc qdisc add dev enX0 root netem delay 20ms` - to introduce a 20 sec delay, as per stack overflow: [here](https://serverfault.com/questions/787006/how-to-add-latency-and-bandwidth-limit-interface-using-tc)
@@ -35,14 +34,16 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * `sudo sysctl -w net.ipv4.tcp_congestion_control=cubic` - to overwrite (temporarily) the networking protocol to be cubic
 
 #### Large file transfer (using iperf):
+* `sudo pkill iperf3` - to kill any uncessary iperf3 sesssions that would persist
 * To set up server and listen for message on 1st VM: `iperf3 -s` (`-s` stands for server)
 * To set up client (and send message to 1st VM from 2nv VM): `iperf3 -c {server_ip} -t 120 --json > (*).json` (eg. run iperf3 to send files to VM 1 for ~360 seconds, saving output of iperf3 into local .json file)
+* Another way to record the data is using tcpdumb like this: `sudo tcpdump -i enX0 tcp port 5201`
 
 #### wgeting a website (as per TAs notes)
 * Copy a website using httrack: `sudo httrack https://www.megamillions.com/`
 * Record the traffic using tcpdumb: `sudo tcpdump -i enX0 tcp port 80 -w {filename}.pcap`
 * Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
-* Process data in python using ...
+* Process data in python using `sudo tcpdump -i enX0 tcp port 8808`
 
 
 #### Video streaming application (deprecated)
