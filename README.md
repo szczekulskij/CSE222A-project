@@ -39,7 +39,7 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * To set up client (and send message to 1st VM from 2nv VM): `iperf3 -c {server_ip} -t 120 --json > (*).json` (eg. run iperf3 to send files to VM 1 for ~360 seconds, saving output of iperf3 into local .json file)
 * Another way to record the data is using tcpdumb like this: `sudo tcpdump -i enX0 tcp port 5201 -w {filename}.pcap`
 
-#### wgeting a website (as per TAs notes)
+#### Website traffic (eg. a single website wget) (as per discussion with TA)
 * Copy a website using httrack: `sudo httrack https://www.megamillions.com/`
 * Record the data using: `sudo tcpdump -i enX0 tcp port 8808 -w {filename}.pcap`
 * Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
@@ -47,10 +47,7 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 
 
 #### Video streaming application (deprecated)
-For this I'm utilsing ffmpeg, and specifically this StreamingGuide: [link](https://trac.ffmpeg.org/wiki/StreamingGuide) 
-* Server (sending live screen grab to client) - `ffmpeg -f x11grab -s 1920x1200 -framerate 15 -i :0.0 -c:v libx264 -preset fast -pix_fmt yuv420p -s 1280x800 -f mpegts tcp://34.222.61.83:1234`
-`ffmpeg -re -f lavfi -i testsrc=size=1280x720:rate=30 -c:v libx264 -preset fast -pix_fmt yuv420p -s 1280x720 -f mpegts tcp://34.222.61.83:1234 -progress stats.log`
-* Client (listening for upcoming traffic)
+* TLDR - After countless hours of trying we scraped the Video Streaming. Although setting up Apache website to stream video was simple enough, chromimum on AWS refued to cooperate
 
 
 ## Data analyses
