@@ -37,13 +37,13 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * `sudo pkill iperf3` - to kill any uncessary iperf3 sesssions that would persist
 * To set up server and listen for message on 1st VM: `iperf3 -s` (`-s` stands for server)
 * To set up client (and send message to 1st VM from 2nv VM): `iperf3 -c {server_ip} -t 120 --json > (*).json` (eg. run iperf3 to send files to VM 1 for ~360 seconds, saving output of iperf3 into local .json file)
-* Another way to record the data is using tcpdumb like this: `sudo tcpdump -i enX0 tcp port 5201`
+* Another way to record the data is using tcpdumb like this: `sudo tcpdump -i enX0 tcp port 5201 -w {filename}.pcap`
 
 #### wgeting a website (as per TAs notes)
 * Copy a website using httrack: `sudo httrack https://www.megamillions.com/`
-* Record the traffic using tcpdumb: `sudo tcpdump -i enX0 tcp port 80 -w {filename}.pcap`
+* Record the data using: `sudo tcpdump -i enX0 tcp port 8808 -w {filename}.pcap`
 * Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
-* Process data in python using `sudo tcpdump -i enX0 tcp port 8808`
+* The data will be pre-processed in python using scapy. The methodology is based on this stack overflow post: [link](https://stackoverflow.com/questions/42963343/reading-pcap-file-with-scapy)
 
 
 #### Video streaming application (deprecated)
