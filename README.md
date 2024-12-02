@@ -38,15 +38,17 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * To set up server and listen for message on 1st VM: `iperf3 -s` (`-s` stands for server)
 * To set up client (and send message to 1st VM from 2nv VM): `iperf3 -c {server_ip} -t 120 --json > (*).json` (eg. run iperf3 to send files to VM 1 for ~360 seconds, saving output of iperf3 into local .json file)
 
-#### Video streaming application (as per TAs notes)
-* ...
+#### wgeting a website (as per TAs notes)
+* Copy a website using httrack: `sudo httrack https://www.megamillions.com/`
+* Record the traffic using tcpdumb: `sudo tcpdump -i enX0 tcp port 80 -w {filename}.pcap`
+* Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
+* Process data in python using ...
 
 
 #### Video streaming application (deprecated)
 For this I'm utilsing ffmpeg, and specifically this StreamingGuide: [link](https://trac.ffmpeg.org/wiki/StreamingGuide) 
 * Server (sending live screen grab to client) - `ffmpeg -f x11grab -s 1920x1200 -framerate 15 -i :0.0 -c:v libx264 -preset fast -pix_fmt yuv420p -s 1280x800 -f mpegts tcp://34.222.61.83:1234`
 `ffmpeg -re -f lavfi -i testsrc=size=1280x720:rate=30 -c:v libx264 -preset fast -pix_fmt yuv420p -s 1280x720 -f mpegts tcp://34.222.61.83:1234 -progress stats.log`
-
 * Client (listening for upcoming traffic)
 
 
@@ -61,12 +63,12 @@ Filenames:
 | Cubic     | 0.005%                        | Bulk Traffic        | Cubic_0.005_BulkTraffic.json    |   Yes  |    |
 | BBR       | 0.01%                         | Bulk Traffic        | BBR_0.01_BulkTraffic.json       |   Yes  |    |
 | Cubic     | 0.01%                         | Bulk Traffic        | Cubic_0.01_BulkTraffic.json     |   Yes  |    |
-| BBR       | 0%                            | Video Streaming     | BBR_0_VideoStreaming.json       |     |    |
-| Cubic     | 0%                            | Video Streaming     | Cubic_0_VideoStreaming.json     |     |    |
-| BBR       | 0.005%                        | Video Streaming     | BBR_0.005_VideoStreaming.json   |     |    |
-| Cubic     | 0.005%                        | Video Streaming     | Cubic_0.005_VideoStreaming.json |     |    |
-| BBR       | 0.01%                         | Video Streaming     | BBR_0.01_VideoStreaming.json    |     |    |
-| Cubic     | 0.01%                         | Video Streaming     | Cubic_0.01_VideoStreaming.json  |     |    |
+| BBR       | 0%                            | Video Streaming     | BBR_0_Website.json       |     |    |
+| Cubic     | 0%                            | Video Streaming     | Cubic_0_Website.json     |     |    |
+| BBR       | 0.005%                        | Video Streaming     | BBR_0.005_Website.json   |     |    |
+| Cubic     | 0.005%                        | Video Streaming     | Cubic_0.005_Website.json |     |    |
+| BBR       | 0.01%                         | Video Streaming     | BBR_0.01_Website.json    |     |    |
+| Cubic     | 0.01%                         | Video Streaming     | Cubic_0.01_Website.json  |     |    |
 
 
 
