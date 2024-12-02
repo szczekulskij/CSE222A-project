@@ -43,7 +43,8 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * Copy a website using httrack: `sudo httrack https://www.megamillions.com/` & set up Apache2 server to host that website.
 * Record the data using: `sudo tcpdump -i enX0 tcp port 8808 -w {filename}.pcap`
 * Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
-* The data will be pre-processed in python using scapy. The methodology is based on this stack overflow post: [link](https://stackoverflow.com/questions/42963343/reading-pcap-file-with-scapy)
+* Conver data to json format using: `tshark -r {filename}.pcap -T json >{filename}.json`
+* 
 
 
 #### Video streaming application (deprecated)
