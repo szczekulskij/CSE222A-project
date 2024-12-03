@@ -3,7 +3,7 @@
 # Configuration
 start_time=$(date +%s.%N)  # Get the start time
 duration=60                 # Duration in seconds
-output_file="BBR_0_BulkTraffic.txt"  # Output file
+output_file="Cubic_0.01_BulkTraffic.txt"  # Output file
 # port="8808"                # Destination port to filter
 port="5201"                # Destination port to filter
 

@@ -56,12 +56,12 @@ Data was gathered by setting loss rate and networking protocol on both serer & c
 Filenames for non-fairness comparison:
 | BBR/Cubic | % Loss Rate (Dropped Packets) | Application Type    | Filename                        | Jan | Ethan |
 |-----------|-------------------------------|---------------------|---------------------------------|-----|-------|
-| BBR       | 0%                            | Bulk Traffic        | BBR_0_BulkTraffic.txt           |     |    |
-| Cubic     | 0%                            | Bulk Traffic        | Cubic_0_BulkTraffic.txt         |     |    |
-| BBR       | 0.005%                        | Bulk Traffic        | BBR_0.005_BulkTraffic.txt       |     |    |
-| Cubic     | 0.005%                        | Bulk Traffic        | Cubic_0.005_BulkTraffic.txt     |     |    |
-| BBR       | 0.01%                         | Bulk Traffic        | BBR_0.01_BulkTraffic.txt        |     |    |
-| Cubic     | 0.01%                         | Bulk Traffic        | Cubic_0.01_BulkTraffic.txt      |     |    |
+| BBR       | 0%                            | Bulk Traffic        | BBR_0_BulkTraffic.txt           |  Yes   |    |
+| Cubic     | 0%                            | Bulk Traffic        | Cubic_0_BulkTraffic.txt         |  Yes   |    |
+| BBR       | 0.005%                        | Bulk Traffic        | BBR_0.005_BulkTraffic.txt       |  Yes   |    |
+| Cubic     | 0.005%                        | Bulk Traffic        | Cubic_0.005_BulkTraffic.txt     |  Yes   |    |
+| BBR       | 0.01%                         | Bulk Traffic        | BBR_0.01_BulkTraffic.txt        |  Yes   |    |
+| Cubic     | 0.01%                         | Bulk Traffic        | Cubic_0.01_BulkTraffic.txt      |  Yes   |    |
 | BBR       | 0%                            | Website             | BBR_0_Website.txt               |     |    |
 | Cubic     | 0%                            | Website             | Cubic_0_Website.txt             |     |    |
 | BBR       | 0.005%                        | Website             | BBR_0.005_Website.txt           |     |    |
