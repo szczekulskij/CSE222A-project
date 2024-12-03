@@ -2,9 +2,10 @@
 
 # Configuration
 start_time=$(date +%s.%N)  # Get the start time
-duration=3                 # Duration in seconds
-output_file="ss_data.txt"  # Output file
-port="8808"                # Destination port to filter
+duration=60                 # Duration in seconds
+output_file="BBR_0_BulkTraffic.txt"  # Output file
+# port="8808"                # Destination port to filter
+port="5201"                # Destination port to filter
 
 # Create or clear the output file
 if [ -f "$output_file" ]; then

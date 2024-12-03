@@ -162,3 +162,6 @@ cython_debug/
 #.idea/
 
 *.png
+*.pem
+# For now ignore all of data that's in .txt format, since it's 8k lines per file
+*.txt 
