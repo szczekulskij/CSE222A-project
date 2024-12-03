@@ -40,11 +40,12 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * Another way to record the data is using tcpdumb like this: `sudo tcpdump -i enX0 tcp port 5201 -w {filename}.pcap`
 
 #### Website traffic (eg. a single website wget) (as per discussion with TA)
-* Copy a website using httrack: `sudo httrack https://www.megamillions.com/` & set up Apache2 server to host that website.
+<!-- * Copy a website using httrack: `sudo httrack https://www.megamillions.com/` & set up Apache2 server to host that website. -->
+* On server - Set up Apache2, and embed a ~15mb pdf into it from here: [link](https://examplefile.com/file-download/321)
+* On client - Run the following wget, which will download both website and files embded in it (eg. pdf): `wget -A pdf,jpg -m -p -E -k -K -np http://52.32.142.14:8808/`
 * Record the data using: `sudo tcpdump -i enX0 tcp port 8808 -w {filename}.pcap`
 * Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
 * Conver data to json format using: `tshark -r {filename}.pcap -T json >{filename}.json`
-* 
 
 
 #### Video streaming application (deprecated)
