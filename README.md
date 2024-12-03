@@ -53,21 +53,34 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 
 ## Data analyses
 Data was gathered by setting loss rate and networking protocol on both serer & client.
-Filenames:
+Filenames for non-fairness comparison:
 | BBR/Cubic | % Loss Rate (Dropped Packets) | Application Type    | Filename                        | Jan | Ethan |
 |-----------|-------------------------------|---------------------|---------------------------------|-----|-------|
-| BBR       | 0%                            | Bulk Traffic        | BBR_0_BulkTraffic.json          |   Yes  |    |
-| Cubic     | 0%                            | Bulk Traffic        | Cubic_0_BulkTraffic.json        |   Yes  |    |
-| BBR       | 0.005%                        | Bulk Traffic        | BBR_0.005_BulkTraffic.json      |   Yes  |    |
-| Cubic     | 0.005%                        | Bulk Traffic        | Cubic_0.005_BulkTraffic.json    |   Yes  |    |
-| BBR       | 0.01%                         | Bulk Traffic        | BBR_0.01_BulkTraffic.json       |   Yes  |    |
-| Cubic     | 0.01%                         | Bulk Traffic        | Cubic_0.01_BulkTraffic.json     |   Yes  |    |
-| BBR       | 0%                            | Video Streaming     | BBR_0_Website.json       |     |    |
-| Cubic     | 0%                            | Video Streaming     | Cubic_0_Website.json     |     |    |
-| BBR       | 0.005%                        | Video Streaming     | BBR_0.005_Website.json   |     |    |
-| Cubic     | 0.005%                        | Video Streaming     | Cubic_0.005_Website.json |     |    |
-| BBR       | 0.01%                         | Video Streaming     | BBR_0.01_Website.json    |     |    |
-| Cubic     | 0.01%                         | Video Streaming     | Cubic_0.01_Website.json  |     |    |
+| BBR       | 0%                            | Bulk Traffic        | BBR_0_BulkTraffic.txt           |     |    |
+| Cubic     | 0%                            | Bulk Traffic        | Cubic_0_BulkTraffic.txt         |     |    |
+| BBR       | 0.005%                        | Bulk Traffic        | BBR_0.005_BulkTraffic.txt       |     |    |
+| Cubic     | 0.005%                        | Bulk Traffic        | Cubic_0.005_BulkTraffic.txt     |     |    |
+| BBR       | 0.01%                         | Bulk Traffic        | BBR_0.01_BulkTraffic.txt        |     |    |
+| Cubic     | 0.01%                         | Bulk Traffic        | Cubic_0.01_BulkTraffic.txt      |     |    |
+| BBR       | 0%                            | Website             | BBR_0_Website.txt               |     |    |
+| Cubic     | 0%                            | Website             | Cubic_0_Website.txt             |     |    |
+| BBR       | 0.005%                        | Website             | BBR_0.005_Website.txt           |     |    |
+| Cubic     | 0.005%                        | Website             | Cubic_0.005_Website.txt         |     |    |
+| BBR       | 0.01%                         | Website             | BBR_0.01_Website.txt            |     |    |
+| Cubic     | 0.01%                         | Website             | Cubic_0.01_Website.txt          |     |    |
+
+
+Filenames for fairness comparison:
+| BBR/Cubic | % Loss Rate (Dropped Packets) | Application Type    | user_nr | Filename                        | Jan | Ethan |
+|-----------|-------------------------------|---------------------|---------|---------------------------------|-----|-------|
+| BBR       | 0%                            | Bulk Traffic        |  user1  | BBR_0_BulkTraffic_u1.txt        |     |       |
+| BBR       | 0%                            | Bulk Traffic        |  user2  | BBR_0_BulkTraffic_u2.txt        |     |       |
+| Cubic     | 0%                            | Bulk Traffic        |  user1  | Cubic_0_BulkTraffic_u1.txt      |     |       |
+| Cubic     | 0%                            | Bulk Traffic        |  user2  | Cubic_0_BulkTraffic_u2.txt      |     |       |
+| BBR       | 0.01%                         | Bulk Traffic        |  user1  | BBR_0.01_BulkTraffic_u1.txt     |     |       |
+| BBR       | 0.01%                         | Bulk Traffic        |  user2  | BBR_0.01_BulkTraffic_u2.txt     |     |       |
+| Cubic     | 0.01%                         | Bulk Traffic        |  user1  | Cubic_0.01_BulkTraffic_u1.txt   |     |       |
+| Cubic     | 0.01%                         | Bulk Traffic        |  user2  | Cubic_0.01_BulkTraffic_u2.txt   |     |       |
 
 
 
