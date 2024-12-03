@@ -2,10 +2,10 @@
 
 # Configuration
 start_time=$(date +%s.%N)  # Get the start time
-duration=60                 # Duration in seconds
-output_file="Cubic_0.01_BulkTraffic.txt"  # Output file
-# port="8808"                # Destination port to filter
-port="5201"                # Destination port to filter
+duration=15                 # Duration in seconds
+output_file="Cubic_0.01_Website.txt"  # Output file
+port="8808"                # Destination port to filter
+# port="5201"                # Destination port to filter
 
 # Create or clear the output file
 if [ -f "$output_file" ]; then
@@ -28,7 +28,8 @@ while true; do
     # Capture filtered ss data
     timestamp=$(date +"%Y-%m-%d %H:%M:%S.%3N")
     echo "Timestamp: $timestamp" >> "$output_file"
-    sudo ss -tni dst :$port >> "$output_file"
+    # sudo ss -tni dst :$port >> "$output_file"
+    sudo ss -tni src :$port >> "$output_file"
     echo "-------------------------------------" >> "$output_file"
 done
 

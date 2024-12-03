@@ -37,15 +37,13 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * `sudo pkill iperf3` - to kill any uncessary iperf3 sesssions that would persist
 * To set up server and listen for message on 1st VM: `iperf3 -s` (`-s` stands for server)
 * To set up client (and send message to 1st VM from 2nv VM): `iperf3 -c {server_ip} -t 120 --json > (*).json` (eg. run iperf3 to send files to VM 1 for ~360 seconds, saving output of iperf3 into local .json file)
-* Another way to record the data is using tcpdumb like this: `sudo tcpdump -i enX0 tcp port 5201 -w {filename}.pcap`
+* Record data using `ss_shell_script.sh` in `/utils` folder using port 5201
 
 #### Website traffic (eg. a single website wget) (as per discussion with TA)
 <!-- * Copy a website using httrack: `sudo httrack https://www.megamillions.com/` & set up Apache2 server to host that website. -->
-* On server - Set up Apache2, and embed a ~15mb pdf into it from here: [link](https://examplefile.com/file-download/321)
+* On server - Set up Apache2, and embed a ~15mb pdf into it from here: [link](https://files.testfile.org/PDF/50MB-TESTFILE.ORG.pdf)
 * On client - Run the following wget, which will download both website and files embded in it (eg. pdf): `wget -A pdf,jpg -m -p -E -k -K -np http://52.32.142.14:8808/`
-* Record the data using: `sudo tcpdump -i enX0 tcp port 8808 -w {filename}.pcap`
-* Wget the website using: `sudo wget http://52.32.142.14:8808/www.megamillions.com/index.html`
-* Conver data to json format using: `tshark -r {filename}.pcap -T json >{filename}.json`
+* Record data using `ss_shell_script.sh` in `/utils` folder using port 8808
 
 
 #### Video streaming application (deprecated)
@@ -63,11 +61,11 @@ Filenames for non-fairness comparison:
 | Cubic     | 0.005%                        | Bulk Traffic        | Cubic_0.005_BulkTraffic.txt     |  Yes   |    |
 | BBR       | 0.01%                         | Bulk Traffic        | BBR_0.01_BulkTraffic.txt        |  Yes   |    |
 | Cubic     | 0.01%                         | Bulk Traffic        | Cubic_0.01_BulkTraffic.txt      |  Yes   |    |
-| BBR       | 0%                            | Website             | BBR_0_Website.txt               |     |    |
-| Cubic     | 0%                            | Website             | Cubic_0_Website.txt             |     |    |
-| BBR       | 0.005%                        | Website             | BBR_0.005_Website.txt           |     |    |
-| Cubic     | 0.005%                        | Website             | Cubic_0.005_Website.txt         |     |    |
-| BBR       | 0.01%                         | Website             | BBR_0.01_Website.txt            |     |    |
+| BBR       | 0%                            | Website             | BBR_0_Website.txt               |  Yes   |    |
+| Cubic     | 0%                            | Website             | Cubic_0_Website.txt             |  Yes   |    |
+| BBR       | 0.005%                        | Website             | BBR_0.005_Website.txt           |  Yes   |    |
+| Cubic     | 0.005%                        | Website             | Cubic_0.005_Website.txt         |  Yes   |    |
+| BBR       | 0.01%                         | Website             | BBR_0.01_Website.txt            |  Yes   |    |
 | Cubic     | 0.01%                         | Website             | Cubic_0.01_Website.txt          |     |    |
 
 
