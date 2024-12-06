@@ -66,7 +66,7 @@ Filenames for non-fairness comparison:
 | BBR       | 0.005%                        | Website             | BBR_0.005_Website.txt           |  Yes   |    |
 | Cubic     | 0.005%                        | Website             | Cubic_0.005_Website.txt         |  Yes   |    |
 | BBR       | 0.01%                         | Website             | BBR_0.01_Website.txt            |  Yes   |    |
-| Cubic     | 0.01%                         | Website             | Cubic_0.01_Website.txt          |     |    |
+| Cubic     | 0.01%                         | Website             | Cubic_0.01_Website.txt          |  Yes   |    |
 
 
 Filenames for fairness comparison:
