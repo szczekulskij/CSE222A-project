@@ -50,6 +50,13 @@ I initially wanted to create 3 VMs. Two within the same Availability Zone (like 
 * TLDR - After countless hours of trying we scraped the Video Streaming. Although setting up Apache website to stream video was simple enough, chromimum on AWS refued to cooperate
 
 
+#### Fairness experiments
+* Run two `iperf3` sessions on server. Run them on different ports using `iperf3 -s -p 5200` & `iperf3 -s -p 5203`
+* Now connect to both of them from the client using `iperf3 -c 172.31.28.16 -t 120 -p 5200` & `iperf3 -c 172.31.28.16 -t 120 -p 5203`
+* Record data using a new shell script: `utils/ss_shell_script_fairness.sh`
+* To kill any iperf3 sessions in the background: `sudo pkill iperf3`
+
+
 ## Data analyses
 Data was gathered by setting loss rate and networking protocol on both serer & client.
 Filenames for non-fairness comparison:
@@ -80,11 +87,3 @@ Filenames for fairness comparison:
 | BBR       | 0.01%                         | Bulk Traffic        |  user2  | BBR_0.01_BulkTraffic_u2.txt     |     |       |
 | Cubic     | 0.01%                         | Bulk Traffic        |  user1  | Cubic_0.01_BulkTraffic_u1.txt   |     |       |
 | Cubic     | 0.01%                         | Bulk Traffic        |  user2  | Cubic_0.01_BulkTraffic_u2.txt   |     |       |
-
-
-
-
-# Self notes
-* Correct output of iftop showing bytes transferred when running curl (![alt text](image.png))
-* It seems there *might* be some traffic being transferred. But unsure about that ...
-

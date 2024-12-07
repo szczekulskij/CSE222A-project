@@ -3,9 +3,9 @@
 # Configuration
 start_time=$(date +%s.%N)  # Get the start time
 duration=15                 # Duration in seconds
-output_file="Cubic_0.01_Website.txt"  # Output file
-port="8808"                # Destination port to filter
-# port="5201"                # Destination port to filter
+output_file="Cubic_0_BulkTraffic_u1.txt"  # Output file
+port="8808"                # Destination port for wget 
+# port="5201"                # Destination port for iperf3
 
 # Create or clear the output file
 if [ -f "$output_file" ]; then
