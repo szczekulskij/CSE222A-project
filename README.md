@@ -83,7 +83,3 @@ Filenames for fairness comparison:
 | BBR       | 0%                            | Bulk Traffic        |  user2  | BBR_0_BulkTraffic_u2.txt        |     |       |
 | Cubic     | 0%                            | Bulk Traffic        |  user1  | Cubic_0_BulkTraffic_u1.txt      |     |       |
 | Cubic     | 0%                            | Bulk Traffic        |  user2  | Cubic_0_BulkTraffic_u2.txt      |     |       |
-| BBR       | 0.01%                         | Bulk Traffic        |  user1  | BBR_0.01_BulkTraffic_u1.txt     |     |       |
-| BBR       | 0.01%                         | Bulk Traffic        |  user2  | BBR_0.01_BulkTraffic_u2.txt     |     |       |
-| Cubic     | 0.01%                         | Bulk Traffic        |  user1  | Cubic_0.01_BulkTraffic_u1.txt   |     |       |
-| Cubic     | 0.01%                         | Bulk Traffic        |  user2  | Cubic_0.01_BulkTraffic_u2.txt   |     |       |

@@ -3,8 +3,8 @@
 # Configuration
 start_time=$(date +%s.%N)  # Get the start time
 duration=120                # Duration in seconds
-output_file1="Cubic_0_BulkTraffic_u1.txt"  # Output file for port 1
-output_file2="Cubic_0_BulkTraffic_u2.txt"  # Output file for port 2
+output_file1="Cubic_0_BulkTraffic_u1.txt"  # Output file for peer1
+output_file2="Cubic_0_BulkTraffic_u2.txt"  # Output file for peer2
 peer1="172.31.28.16:5200"  # Peer address and port for first connection
 peer2="172.31.28.16:5203"  # Peer address and port for second connection
 
@@ -36,12 +36,12 @@ while true; do
     # Capture filtered ss data for peer1
     timestamp=$(date +"%Y-%m-%d %H:%M:%S.%3N")
     echo "Timestamp: $timestamp" >> "$output_file1"
-    sudo ss -tni | grep "$peer1" >> "$output_file1"
+    sudo ss -tni dst "$peer1" >> "$output_file1"
     echo "-------------------------------------" >> "$output_file1"
 
     # Capture filtered ss data for peer2
     echo "Timestamp: $timestamp" >> "$output_file2"
-    sudo ss -tni | grep "$peer2" >> "$output_file2"
+    sudo ss -tni dst "$peer2" >> "$output_file2"
     echo "-------------------------------------" >> "$output_file2"
 done
 
